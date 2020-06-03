@@ -1,10 +1,13 @@
 package Main;
-
+import BD.DBConnectionUtil;
 import model.*;
 import service.*;
 import repository.*;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import java.sql.Connection;
 public class Main {
 
     public static ClientService clientService;
@@ -51,6 +54,13 @@ public class Main {
         System.out.println(m.toString());
 
         loadData();
+        Connection connection = DBConnectionUtil.getDBConnection();
+        MasinaRepositoryDB l = new MasinaRepositoryDB(connection);
+        try {
+            l.add(m);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 

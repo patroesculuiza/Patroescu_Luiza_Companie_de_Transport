@@ -14,6 +14,14 @@ public class Masina {
         this.capacitate=capacitate;
     }
 
+    public Masina(String string, String string1, String string2, float aFloat) {
+        this.nr_inregistrare = string;
+        this.marca = string1;
+        this.culoare = string2;
+        this.capacitate = aFloat;
+        this.ruta = null;
+    }
+
     public String getNr_inregistrare()
     {
         return nr_inregistrare;
